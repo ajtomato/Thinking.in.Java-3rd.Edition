@@ -1,5 +1,11 @@
 class HelloWorld {
 
+    private int fField = 9;
+
+    void Method() {
+        System.out.println("A method is called. Field: " + fField);
+    }
+
     static void TestPrimitiveTypes() {
         boolean b1 = false;
         Boolean b2 = new Boolean(b1);
@@ -42,9 +48,14 @@ class HelloWorld {
         System.out.println("BigDecimal => float " + d.ZERO);
     }
 
+    static void TestFieldAndMethod() {
+        HelloWorld h = new HelloWorld();
+        h.Method();
+    }
+
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestHighPrecisionNumbers();
+        TestFieldAndMethod();
     }
 
 }
