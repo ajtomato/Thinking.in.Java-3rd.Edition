@@ -34,9 +34,17 @@ class HelloWorld {
         System.out.println("double: " + d2.MIN_VALUE + ", " + d2.MAX_VALUE);
     }
 
+    static void TestHighPrecisionNumbers() {
+        java.math.BigInteger i = new java.math.BigInteger("0");
+        System.out.println("BigInteger => int " + i.ZERO);
+
+        java.math.BigDecimal d = new java.math.BigDecimal("0");
+        System.out.println("BigDecimal => float " + d.ZERO);
+    }
+
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestPrimitiveTypes();
+        TestHighPrecisionNumbers();
     }
 
 }
