@@ -2,42 +2,47 @@ class HelloWorld {
 
     private int fField = 9;
 
+    static boolean b1;
+    static char c1;
+    static byte b3;
+    static short s1;
+    static int i1;
+    static long l1;
+    static float f1;
+    static double d1;
+
     void Method() {
         System.out.println("A method is called. Field: " + fField);
     }
 
     static void TestPrimitiveTypes() {
-        boolean b1 = false;
+        // [COMPILE ERROR]
+        //  The variables of primitive type in the method must be initialized.
+        //  The fields of primitive type are initialized as the default value.
+        // boolean b1;
         Boolean b2 = new Boolean(b1);
-        System.out.println("boolean: " + b2.FALSE + ", " + b2.TRUE);
-
-        char c1 = 'c';
+        System.out.println("[boolean]: default - " + b1 + ", false - " + b2.FALSE + ", true - " + b2.TRUE);
+        
         Character c2 = new Character(c1);
-        System.out.println("char: " + (int)c2.MIN_VALUE + ", " + (int)c2.MAX_VALUE);
-
-        byte b3 = 0;
+        System.out.println("[char]: default - " + (int)c1 + ", min - " + (int)c2.MIN_VALUE + ", max - " + (int)c2.MAX_VALUE);
+        
         Byte b4 = new Byte(b3);
-        System.out.println("byte: " + b4.MIN_VALUE + ", " + b4.MAX_VALUE);
-
-        short s1 = 0;
+        System.out.println("[byte]: default - " + b3 + ", min - " + b4.MIN_VALUE + ", max - " + b4.MAX_VALUE);
+        
         Short s2 = new Short(s1);
-        System.out.println("short: " + s2.MIN_VALUE + ", " + s2.MAX_VALUE);
+        System.out.println("[short]: default - " + s1 + ", min - " + s2.MIN_VALUE + ", max - " + s2.MAX_VALUE);
 
-        int i1 = 0;
         Integer i2 = new Integer(i1);
-        System.out.println("int: " + i2.MIN_VALUE + ", " + i2.MAX_VALUE);
+        System.out.println("[int]: default - " + i1 + ", min - " + i2.MIN_VALUE + ", max - " + i2.MAX_VALUE);
 
-        long l1 = 0;
         Long l2 = new Long(l1);
-        System.out.println("long: " + l2.MIN_VALUE + ", " + l2.MAX_VALUE);
+        System.out.println("[long]: default - " + l1 + ", min - " + l2.MIN_VALUE + ", max - " + l2.MAX_VALUE);
 
-        float f1 = 0.0f;
         Float f2 = new Float(f1);
-        System.out.println("float: " + f2.MIN_VALUE + ", " + f2.MAX_VALUE);
+        System.out.println("[float]: default - " + f1 + ", min - " + f2.MIN_VALUE + ", max - " + f2.MAX_VALUE);
 
-        double d1 = 0.0;
         Double d2 = new Double(d1);
-        System.out.println("double: " + d2.MIN_VALUE + ", " + d2.MAX_VALUE);
+        System.out.println("[double]: default - " + d1 + ", min - " + d2.MIN_VALUE + ", max - " + d2.MAX_VALUE);
     }
 
     static void TestHighPrecisionNumbers() {
@@ -55,7 +60,7 @@ class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestFieldAndMethod();
+        TestPrimitiveTypes();
     }
 
 }
