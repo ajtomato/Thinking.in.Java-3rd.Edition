@@ -1,7 +1,7 @@
 // import java.lang.*;      It is brought in automatically.
 import java.util.*;
 
-class HelloWorld {
+public class HelloWorld {
 
     private int fField = 9;
 
@@ -59,6 +59,18 @@ class HelloWorld {
     static void TestFieldAndMethod() {
         HelloWorld h = new HelloWorld();
         h.Method();
+    }
+
+    /**
+     * Test comment document.
+     * @param i     The first parameter.
+     * @param j     The second parameter.
+     * @param k     The third parameter.
+     * @return      The return value.
+     * @exception   None
+     */
+    public static int TestCommentDocument(int i, int j, int k) {
+        return (i + j + k);
     }
 
     public static void main(String[] args) {
