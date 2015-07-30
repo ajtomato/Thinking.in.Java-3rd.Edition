@@ -1,3 +1,6 @@
+// import java.lang.*;      It is brought in automatically.
+import java.util.*;
+
 class HelloWorld {
 
     private int fField = 9;
