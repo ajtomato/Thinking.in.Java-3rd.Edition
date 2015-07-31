@@ -75,6 +75,10 @@ public class HelloWorld {
         System.out.println("The default behavior of equals for defined class is same as ==. It should be overriden.");
     }
 
+    static void TestUnsignedRightShift() {
+        System.out.println("Right Shift: " + ((-1) >> 2) + ", Unsigned Right Shift: " + ((-1) >>> 2));
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -89,7 +93,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestEqualsOperator();
+        TestUnsignedRightShift();
     }
 
 }
