@@ -67,6 +67,14 @@ public class HelloWorld {
         System.out.println("Random (0.0 - 1.0): " + r.nextFloat());
     }
 
+    static void TestEqualsOperator() {
+        Integer i1 = new Integer(5);
+        Integer i2 = new Integer(i1);
+        System.out.println("== means refer to the same object: " + (i1 != i2));
+        System.out.println("equals means the value of two objects are same: " + i1.equals(i2));
+        System.out.println("The default behavior of equals for defined class is same as ==. It should be overriden.");
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -81,7 +89,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestRandom();
+        TestEqualsOperator();
     }
 
 }
