@@ -61,6 +61,12 @@ public class HelloWorld {
         h.Method();
     }
 
+    static void TestRandom() {
+        Random r = new Random();
+        System.out.println("Random (1 - 100): " + (r.nextInt(100) + 1));
+        System.out.println("Random (0.0 - 1.0): " + r.nextFloat());
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -75,7 +81,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestPrimitiveTypes();
+        TestRandom();
     }
 
 }
