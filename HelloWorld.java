@@ -14,11 +14,11 @@ public class HelloWorld {
     static float f1;
     static double d1;
 
-    void Method() {
+    void method() {
         System.out.println("A method is called. Field: " + fField);
     }
 
-    static void TestPrimitiveTypes() {
+    static void testPrimitiveTypes() {
         // [COMPILE ERROR]
         //  The variables of primitive type in the method must be initialized.
         //  The fields of primitive type are initialized as the default value.
@@ -48,7 +48,7 @@ public class HelloWorld {
         System.out.println("[double]: default - " + d1 + ", min - " + d2.MIN_VALUE + ", max - " + d2.MAX_VALUE);
     }
 
-    static void TestHighPrecisionNumbers() {
+    static void testHighPrecisionNumbers() {
         java.math.BigInteger i = new java.math.BigInteger("0");
         System.out.println("BigInteger => int " + i.ZERO);
 
@@ -56,18 +56,18 @@ public class HelloWorld {
         System.out.println("BigDecimal => float " + d.ZERO);
     }
 
-    static void TestFieldAndMethod() {
+    static void testFieldAndMethod() {
         HelloWorld h = new HelloWorld();
-        h.Method();
+        h.method();
     }
 
-    static void TestRandom() {
+    static void testRandom() {
         Random r = new Random();
         System.out.println("Random (1 - 100): " + (r.nextInt(100) + 1));
         System.out.println("Random (0.0 - 1.0): " + r.nextFloat());
     }
 
-    static void TestEqualsOperator() {
+    static void testEqualsOperator() {
         Integer i1 = new Integer(5);
         Integer i2 = new Integer(i1);
         System.out.println("== means refer to the same object: " + (i1 != i2));
@@ -75,11 +75,11 @@ public class HelloWorld {
         System.out.println("The default behavior of equals for defined class is same as ==. It should be overriden.");
     }
 
-    static void TestUnsignedRightShift() {
+    static void testUnsignedRightShift() {
         System.out.println("Right Shift: " + ((-1) >> 2) + ", Unsigned Right Shift: " + ((-1) >>> 2));
     }
 
-    static void TestLabel() {
+    static void testLabel() {
         outer:
         for (int i = 0; i < 5; ++ i) {
             for (int j = 0; j < 3; ++ j) {
@@ -102,13 +102,13 @@ public class HelloWorld {
      * @return      The return value.
      * @exception   None
      */
-    public static int TestCommentDocument(int i, int j, int k) {
+    public static int testCommentDocument(int i, int j, int k) {
         return (i + j + k);
     }
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestLabel();
+        testLabel();
     }
 
 }
