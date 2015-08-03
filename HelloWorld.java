@@ -79,6 +79,21 @@ public class HelloWorld {
         System.out.println("Right Shift: " + ((-1) >> 2) + ", Unsigned Right Shift: " + ((-1) >>> 2));
     }
 
+    static void TestLabel() {
+        outer:
+        for (int i = 0; i < 5; ++ i) {
+            for (int j = 0; j < 3; ++ j) {
+                if (i * j == 4) {
+                    break outer;
+                } else if (i + j == 3) {
+                    continue outer;
+                }
+                System.out.println("INNER: " + j);
+            }
+            System.out.println("OUTER: " + i);
+        }
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -93,7 +108,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestUnsignedRightShift();
+        TestLabel();
     }
 
 }
