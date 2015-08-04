@@ -14,8 +14,10 @@ public class HelloWorld {
     static float f1;
     static double d1;
 
-    void method() {
-        System.out.println("A method is called. Field: " + fField);
+    HelloWorld method(int fField) {
+        this.fField = fField;
+        System.out.println("fField: " + this.fField);
+        return this;
     }
 
     static void testPrimitiveTypes() {
@@ -58,7 +60,7 @@ public class HelloWorld {
 
     static void testFieldAndMethod() {
         HelloWorld h = new HelloWorld();
-        h.method();
+        h.method(3);
     }
 
     static void testRandom() {
@@ -94,6 +96,11 @@ public class HelloWorld {
         }
     }
 
+    static void TestThis() {
+        HelloWorld hw = new HelloWorld();
+        hw.method(1);
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -108,7 +115,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        testLabel();
+        TestThis();
     }
 
 }
