@@ -14,6 +14,15 @@ public class HelloWorld {
     static float f1;
     static double d1;
 
+    HelloWorld() {
+        System.out.println("default constructor");
+    }
+
+    HelloWorld(String s) {
+        this();
+        System.out.println(s);
+    }
+
     HelloWorld method(int fField) {
         this.fField = fField;
         System.out.println("fField: " + this.fField);
@@ -97,7 +106,7 @@ public class HelloWorld {
     }
 
     static void TestThis() {
-        HelloWorld hw = new HelloWorld();
+        HelloWorld hw = new HelloWorld("Goodbye");
         hw.method(1);
     }
 
