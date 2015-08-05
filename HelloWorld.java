@@ -29,6 +29,14 @@ public class HelloWorld {
         return this;
     }
 
+    public void finalize() {
+        if (fField != 0) {
+            System.out.println("finalize is used for two purpose: \n"
+                    + "(1) cleanup memory allocated in native methods;\n"
+                    + "(2) check the terminate condition (some resources should be release manually, once object is not needed. finalize can detect which are released.)");
+        }
+    }
+
     static void testPrimitiveTypes() {
         // [COMPILE ERROR]
         //  The variables of primitive type in the method must be initialized.
@@ -110,6 +118,11 @@ public class HelloWorld {
         hw.method(1);
     }
 
+    static void TestFinalize() {
+        new HelloWorld();
+        System.gc();
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -124,7 +137,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         // System.out.println("Hello World");
-        TestThis();
+        TestFinalize();
     }
 
 }
