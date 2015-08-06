@@ -1,5 +1,6 @@
 // import java.lang.*;      It is brought in automatically.
 import java.util.*;
+import com.gmail.ajtomato.Package;
 
 public class HelloWorld {
 
@@ -135,6 +136,10 @@ public class HelloWorld {
         System.gc();
     }
 
+    static void TestPackage() {
+        Package b = new Package();
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -152,7 +157,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        TestFinalize();
+        TestPackage();
     }
 
 }
