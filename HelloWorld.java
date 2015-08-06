@@ -11,10 +11,14 @@ public class HelloWorld {
     static char c1;
     static byte b3;
     static short s1;
-    static int i1;
+    static int i1 = testRandom();
     static long l1;
     static float f1;
     static double d1;
+
+    static {
+        System.out.println("static initialization is called after the static fields are initialized");
+    }
 
     HelloWorld() {
         System.out.println("default constructor");
