@@ -7,6 +7,11 @@ public class HelloWorld {
     private int fField = 9;
     private int fField1 = testRandom();
 
+    // Non-static instance initialization
+    {
+        fField = testRandom();
+    }
+
     static boolean b1;
     static char c1;
     static byte b3;
