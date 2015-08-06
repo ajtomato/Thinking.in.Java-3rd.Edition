@@ -3,7 +3,9 @@ import java.util.*;
 
 public class HelloWorld {
 
+    // Specifying initialization
     private int fField = 9;
+    private int fField1 = testRandom();
 
     static boolean b1;
     static char c1;
@@ -80,10 +82,11 @@ public class HelloWorld {
         h.method(3);
     }
 
-    static void testRandom() {
+    static int testRandom() {
         Random r = new Random();
         System.out.println("Random (1 - 100): " + (r.nextInt(100) + 1));
         System.out.println("Random (0.0 - 1.0): " + r.nextFloat());
+        return r.nextInt(100);
     }
 
     static void testEqualsOperator() {
