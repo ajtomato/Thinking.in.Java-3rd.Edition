@@ -140,6 +140,11 @@ public class HelloWorld {
         Package b = new Package();
     }
 
+    static void TestProtected() {
+        BaseType b = new BaseType();
+        b.ProtectedMethod();
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -157,7 +162,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        TestPackage();
+        TestProtected();
     }
 
 }
