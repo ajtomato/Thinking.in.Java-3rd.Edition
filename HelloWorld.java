@@ -159,6 +159,14 @@ public class HelloWorld {
         b.dispose();
     }
 
+    static void testFinalReference() {
+        final BaseType b = new DeriveType(9);
+        // [COMPILE ERROR]
+        //  Final reference cannot point to others.
+        // b = new DeriveType(11);
+        b.dispose();
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
