@@ -167,6 +167,12 @@ public class HelloWorld {
         b.dispose();
     }
 
+    static void testFinalArgument(final String s) {
+        // [COMPILE ERROR]
+        // s = new String("Hello world");
+        System.out.println("Final arguments cannot point to others");
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -186,7 +192,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testInheritance();
+        testFinalArgument("Hello");
     }
 
 }
