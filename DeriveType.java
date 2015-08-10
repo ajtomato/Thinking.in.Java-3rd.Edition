@@ -1,6 +1,7 @@
 class DeriveType extends BaseType {
 
     private int fField = 3;
+    private final int fFinalField;
 
     {
         final int constInt = 7;
@@ -10,6 +11,7 @@ class DeriveType extends BaseType {
 
     DeriveType(int field) {
         super(field);
+        fFinalField = field;
         System.out.println("DeriveType.Constructor: " + fField + " => " + field);
         fField = field;
     }
