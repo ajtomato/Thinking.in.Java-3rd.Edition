@@ -130,27 +130,32 @@ public class HelloWorld {
         }
     }
 
-    static void TestThis() {
+    static void testThis() {
         HelloWorld hw = new HelloWorld("Goodbye");
         hw.method(1);
     }
 
-    static void TestFinalize() {
+    static void testFinalize() {
         new HelloWorld();
         System.gc();
     }
 
-    static void TestPackage() {
+    static void testPackage() {
         Package b = new Package();
     }
 
-    static void TestProtected() {
+    static void testProtected() {
         BaseType b = new BaseType();
-        b.ProtectedMethod();
+        b.protectedMethod();
     }
 
-    static void TestToString() {
+    static void testToString() {
         System.out.println(new HelloWorld());
+    }
+
+    static void testInheritance() {
+        BaseType b = new DeriveType();
+        b.protectedMethod();
     }
 
     /**
@@ -170,7 +175,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        TestToString();
+        testInheritance();
     }
 
 }
