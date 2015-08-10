@@ -20,4 +20,8 @@ class BaseType {
     void dispose() {
         System.out.println("BaseType.dispose");
     }
+
+    final void finalMethod() {
+        System.out.println("BaseType.finalMethod");
+    }
 }

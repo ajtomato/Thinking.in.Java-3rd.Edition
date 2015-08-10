@@ -26,4 +26,10 @@ class DeriveType extends BaseType {
         System.out.println("DeriveType.dispose");
         super.dispose();
     }
+
+    // [COMPILE ERROR]
+    //  final method cannot be overriden
+    //  @Override
+    //  void finalMethod() {
+    //  }
 }
