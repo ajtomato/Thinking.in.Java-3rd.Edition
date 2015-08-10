@@ -3,8 +3,9 @@ class DeriveType extends BaseType {
     private int fField = 3;
 
     {
-        System.out.println("DeriveType instance initializer: " + fField + " => " + 7);
-        fField = 7;
+        final int constInt = 7;
+        System.out.println("DeriveType instance initializer: " + fField + " => " + constInt);
+        fField = constInt;
     }
 
     DeriveType(int field) {

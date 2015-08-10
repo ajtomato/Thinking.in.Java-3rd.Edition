@@ -3,8 +3,9 @@ class BaseType {
     protected int fField = 1;
 
     {
-        System.out.println("BaseType instance initializer: " + fField + " => " + 5);
-        fField = 5;
+        final int constInt = 5;
+        System.out.println("BaseType instance initializer: " + fField + " => " + constInt);
+        fField = constInt;
     }
 
     BaseType(int field) {
