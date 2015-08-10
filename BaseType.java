@@ -16,4 +16,7 @@ class BaseType {
         System.out.println("protectedMethod provides package access");
     }
 
+    void dispose() {
+        System.out.println("BaseType.dispose");
+    }
 }

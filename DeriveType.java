@@ -17,4 +17,10 @@ class DeriveType extends BaseType {
     public void protectedMethod() {
         System.out.println("DeriveType.protectedMethod");
     }
+
+    @Override
+    void dispose() {
+        System.out.println("DeriveType.dispose");
+        super.dispose();
+    }
 }
