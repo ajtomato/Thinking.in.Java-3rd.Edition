@@ -49,6 +49,10 @@ public class HelloWorld {
         }
     }
 
+    public String toString() {
+        return "HelloWorld.toString";
+    }
+
     static void testPrimitiveTypes() {
         // [COMPILE ERROR]
         //  The variables of primitive type in the method must be initialized.
@@ -145,6 +149,10 @@ public class HelloWorld {
         b.ProtectedMethod();
     }
 
+    static void TestToString() {
+        System.out.println(new HelloWorld());
+    }
+
     /**
      * Test comment document.
      * @param i     The first parameter.
@@ -162,7 +170,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        TestProtected();
+        TestToString();
     }
 
 }
