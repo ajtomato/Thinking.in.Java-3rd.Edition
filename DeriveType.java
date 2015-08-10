@@ -1,7 +1,16 @@
 class DeriveType extends BaseType {
 
-    DeriveType() {
-        System.out.println("DeriveType.Constructor");
+    private int fField = 3;
+
+    {
+        System.out.println("DeriveType instance initializer: " + fField + " => " + 7);
+        fField = 7;
+    }
+
+    DeriveType(int field) {
+        super(field);
+        System.out.println("DeriveType.Constructor: " + fField + " => " + field);
+        fField = field;
     }
 
     @Override

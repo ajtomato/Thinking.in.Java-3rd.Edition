@@ -145,7 +145,7 @@ public class HelloWorld {
     }
 
     static void testProtected() {
-        BaseType b = new BaseType();
+        BaseType b = new BaseType(9);
         b.protectedMethod();
     }
 
@@ -154,7 +154,7 @@ public class HelloWorld {
     }
 
     static void testInheritance() {
-        BaseType b = new DeriveType();
+        BaseType b = new DeriveType(9);
         b.protectedMethod();
     }
 
