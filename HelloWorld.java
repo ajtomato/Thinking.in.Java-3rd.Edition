@@ -167,6 +167,8 @@ public class HelloWorld {
         b.dispose();
     }
 
+    public static final int CONST_VALUE = 101;
+
     /**
      * Test comment document.
      * @param i     The first parameter.
