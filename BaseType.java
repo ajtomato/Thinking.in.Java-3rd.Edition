@@ -1,3 +1,6 @@
+// [COMPILE ERROR]
+//  final class cannot be inherited.
+//  final class BaseType {
 class BaseType {
 
     protected int fField = 1;
