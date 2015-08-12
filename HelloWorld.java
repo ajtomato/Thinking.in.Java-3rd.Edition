@@ -173,6 +173,14 @@ public class HelloWorld {
         System.out.println("Final arguments cannot point to others");
     }
 
+    static void testAbstractType() {
+        AbstractType a = new ConcreteType();
+        a.abstractMethod();
+
+        NoAbstractMethodAbstractType n = new ConcreteMethodType();
+        n.concreteMethod();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -192,7 +200,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testFinalArgument("Hello");
+        testAbstractType();
     }
 
 }
