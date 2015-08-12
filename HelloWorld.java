@@ -155,7 +155,7 @@ public class HelloWorld {
 
     static void testInheritance() {
         BaseType b = new DeriveType(9);
-        b.protectedMethod();
+        b.method();
         b.dispose();
     }
 
