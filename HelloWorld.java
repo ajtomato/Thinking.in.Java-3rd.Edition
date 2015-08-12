@@ -200,7 +200,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testAbstractType();
+        testInheritance();
     }
 
 }

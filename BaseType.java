@@ -13,6 +13,7 @@ class BaseType {
 
     BaseType(int field) {
         System.out.println("BaseType Constructor: " + fField + " => " + field);
+        protectedMethod();
         fField = field;
     }
 
