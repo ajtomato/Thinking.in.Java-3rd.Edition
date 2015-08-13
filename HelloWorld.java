@@ -181,6 +181,16 @@ public class HelloWorld {
         n.concreteMethod();
     }
 
+    static void testNestedPrivateInterface() {
+        ConcreteType c = new ConcreteType();
+        // [COMPILE ERROR]
+        //  The nested private interface is invisible outside parent.
+        //  ConcreteType.NestedPrivateInterface i = c.createNestedPrivateInterface();
+
+        // If the nested private interface is not referred directly, it can be used directly.
+        c.setNestedPrivateInterface(c.createNestedPrivateInterface());
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**

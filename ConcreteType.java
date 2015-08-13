@@ -15,6 +15,22 @@ class ConcreteType extends AbstractType implements InterfaceType1, InterfaceType
         System.out.println("ConcreteType.interfaceMethod2");
     }
 
+    private interface NestedPrivateInterface {
+
+    }
+
+    class NestedPrivateInterfaceImpl implements NestedPrivateInterface {
+
+    }
+
+    NestedPrivateInterface createNestedPrivateInterface() {
+        return new NestedPrivateInterfaceImpl();
+    }
+
+    void setNestedPrivateInterface(NestedPrivateInterface n) {
+        
+    }
+
 }
 
 class ConcreteMethodType extends NoAbstractMethodAbstractType {
