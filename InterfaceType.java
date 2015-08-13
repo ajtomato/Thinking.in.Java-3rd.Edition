@@ -1,3 +1,9 @@
+interface InterfaceType {
+
+    void interfaceMethod();
+    
+}
+
 interface InterfaceType1 {
 
     // Fields are implicitly static and final.

@@ -191,6 +191,12 @@ public class HelloWorld {
         c.setNestedPrivateInterface(c.createNestedPrivateInterface());
     }
 
+    static void testInnerType() {
+        InnerType i = new InnerType();
+        InterfaceType it = i.getInterfaceType();
+        it.interfaceMethod();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -210,7 +216,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testInheritance();
+        testInnerType();
     }
 
 }
