@@ -6,6 +6,10 @@ abstract class AbstractType {
                     System.out.println("AbstractType.concreteMethod");
                 }
 
+                public void interfaceMethod3() {
+                    System.out.println("AbstractType.interfaceMethod3");
+                }
+
 }
 
 abstract class NoAbstractMethodAbstractType {

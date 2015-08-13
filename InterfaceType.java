@@ -12,4 +12,6 @@ interface InterfaceType2 {
 
     void interfaceMethod2();
 
+    void interfaceMethod3();
+
 }
