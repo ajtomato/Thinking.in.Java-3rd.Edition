@@ -15,3 +15,9 @@ interface InterfaceType2 {
     void interfaceMethod3();
 
 }
+
+interface InterfaceType3 extends InterfaceType1, InterfaceType2 {
+
+    void interfaceMethod4();
+
+}
