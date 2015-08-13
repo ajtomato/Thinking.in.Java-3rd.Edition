@@ -1,8 +1,18 @@
-class ConcreteType extends AbstractType {
+class ConcreteType extends AbstractType implements InterfaceType1, InterfaceType2 {
 
     @Override
     void abstractMethod() {
         System.out.println("ConcreteType.abstractMethod");
+    }
+
+    @Override
+    public void interfaceMethod1() {
+        System.out.println("ConcreteType.interfaceMethod1: " + staticFinalField);
+    }
+
+    @Override
+    public void interfaceMethod2() {
+        System.out.println("ConcreteType.interfaceMethod2");
     }
 
 }
