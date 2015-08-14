@@ -195,6 +195,9 @@ public class HelloWorld {
         InnerType i = new InnerType();
         InterfaceType it = i.innerClassWithInitializer("Hello");
         it.interfaceMethod();
+
+        ConcreteType c = new ConcreteType();
+        ConcreteType.NestedPrivateInterfaceImpl n = c.new NestedPrivateInterfaceImpl();
     }
 
     public static final int CONST_VALUE = 101;
