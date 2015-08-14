@@ -200,6 +200,13 @@ public class HelloWorld {
         ConcreteType.NestedPrivateInterfaceImpl n = c.new NestedPrivateInterfaceImpl();
     }
 
+    static void testMultiNestingInnerClass() {
+        MultiNestingAccess a = new MultiNestingAccess();
+        MultiNestingAccess.Nest1 b = a.new Nest1();
+        MultiNestingAccess.Nest1.Nest2 c = b.new Nest2();
+        c.method3();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -219,7 +226,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testInnerType();
+        testMultiNestingInnerClass();
     }
 
 }

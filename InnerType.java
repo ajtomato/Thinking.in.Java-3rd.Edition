@@ -71,3 +71,24 @@ class InnerType {
     }
     
 }
+
+class MultiNestingAccess {
+
+    private void method1() {}
+
+    class Nest1 {
+
+        private void method2() {}
+
+        class Nest2 {
+
+            void method3() {
+                method2();
+                method1();
+            }
+
+        }
+
+    }
+
+}
