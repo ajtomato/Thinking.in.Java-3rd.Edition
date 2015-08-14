@@ -63,6 +63,7 @@ class InnerType {
 
             public void interfaceMethod() {
                 System.out.println("InnerType.innerClassWithInitializer.InterfaceType.interfaceMethod: " + s + ", " + fField);
+                InnerType me = InnerType.this;
             }
 
         };
