@@ -36,5 +36,17 @@ class InnerType {
         };
 
     }
+
+    HelloWorld anonymousInnerClassWithArgument() {
+
+        return new HelloWorld("InnerClass") {
+
+            HelloWorld method(int fField) {
+                System.out.println("InnerType.anonymousInnerClassWithArgument.HelloWorld");
+                return this;
+            }
+
+        };
+    }
     
 }
