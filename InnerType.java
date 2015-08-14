@@ -24,5 +24,17 @@ class InnerType {
 
         return new LocalInnerClass();
     }
+
+    InterfaceType anonymousInnerClass() {
+
+        return new InterfaceType() {
+
+            public void interfaceMethod() {
+                System.out.println("InnerType.anonymousInnerClass.InterfaceType");
+            }
+
+        };
+
+    }
     
 }
