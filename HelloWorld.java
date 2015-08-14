@@ -193,7 +193,7 @@ public class HelloWorld {
 
     static void testInnerType() {
         InnerType i = new InnerType();
-        InterfaceType it = i.getInterfaceType();
+        InterfaceType it = i.localInnerClass();
         it.interfaceMethod();
     }
 
