@@ -193,8 +193,8 @@ public class HelloWorld {
 
     static void testInnerType() {
         InnerType i = new InnerType();
-        HelloWorld it = i.anonymousInnerClassWithArgument();
-        it.method(5);
+        InterfaceType it = i.innerClassWithInitializer("Hello");
+        it.interfaceMethod();
     }
 
     public static final int CONST_VALUE = 101;

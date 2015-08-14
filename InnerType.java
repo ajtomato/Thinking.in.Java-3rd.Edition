@@ -48,5 +48,23 @@ class InnerType {
 
         };
     }
+
+    InterfaceType innerClassWithInitializer(final String s) {
+
+        return new InterfaceType() {
+
+            private String fStr = s;
+
+            {
+                System.out.println("InnerType.innerClassWithInitializer.InterfaceType.instanceInitialization: " + fStr);
+            }
+
+            public void interfaceMethod() {
+                System.out.println("InnerType.innerClassWithInitializer.InterfaceType.interfaceMethod: " + s);
+            }
+
+        };
+
+    }
     
 }
