@@ -31,6 +31,15 @@ class ConcreteType extends AbstractType implements InterfaceType1, InterfaceType
         
     }
 
+    public static class NestedClass {
+
+        public static void main(String[] args) {
+            System.out.println("Nested class does NOT need an object of outer class, since it is static.");
+            System.out.println("Nested class can be used to build a testbed.");
+        }
+
+    }
+
 }
 
 class ConcreteMethodType extends NoAbstractMethodAbstractType {
