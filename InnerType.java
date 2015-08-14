@@ -1,5 +1,7 @@
 class InnerType {
 
+    private int fField = 3;
+
     private class PrivateInterfaceType implements InterfaceType {
 
         public void interfaceMethod() {
@@ -60,7 +62,7 @@ class InnerType {
             }
 
             public void interfaceMethod() {
-                System.out.println("InnerType.innerClassWithInitializer.InterfaceType.interfaceMethod: " + s);
+                System.out.println("InnerType.innerClassWithInitializer.InterfaceType.interfaceMethod: " + s + ", " + fField);
             }
 
         };
