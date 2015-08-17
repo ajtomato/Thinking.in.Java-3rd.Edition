@@ -92,3 +92,11 @@ class MultiNestingAccess {
     }
 
 }
+
+class InheritInner extends MultiNestingAccess.Nest1 {
+
+    InheritInner(MultiNestingAccess m) {
+        m.super();
+    }
+    
+}
