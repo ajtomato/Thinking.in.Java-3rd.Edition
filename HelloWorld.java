@@ -207,6 +207,21 @@ public class HelloWorld {
         c.method3();
     }
 
+    // There must be "throws", if an exception is thrown out of a method.
+    static void testThrowException() throws DemoException {
+        throw new DemoException("Hello");
+    }
+
+    static void testException() {
+        try {
+            testThrowException();
+        } catch (DemoException e) {
+            e.detail();
+            e.printStackTrace();
+            System.err.println(e);
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -226,7 +241,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testMultiNestingInnerClass();
+        testException();
     }
 
 }
