@@ -232,6 +232,8 @@ public class HelloWorld {
             System.err.println(e);
             // fillInStackTrace returns Throwable
             throw e.fillInStackTrace();
+        } finally {
+            System.out.println("finally is always called.");
         }
     }
 
