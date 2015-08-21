@@ -237,6 +237,38 @@ public class HelloWorld {
         }
     }
 
+    static void testRTTI() {
+        Class c1 = int.class;
+        try {
+            Class c2 = Class.forName("HelloWorld");
+            Object o1 = c2.newInstance();
+            if (o1 instanceof HelloWorld) {
+                System.out.println("o1 is an object of HelloWorld");
+            }
+            if (c2.isInstance(o1)) {
+                System.out.println("o1 is an object of HelloWorld");
+            }
+            Object o2 = new DeriveType(3);
+            if (o2.getClass() == BaseType.class) {
+                System.out.println("o2 is an object of BaseType");
+            }
+            if (o2.getClass() == DeriveType.class) {
+                System.out.println("o2 is an object of DeriveType");
+            }
+            if (o2 instanceof BaseType) {
+                System.out.println("o2 is an instance of BaseType");
+            }
+            System.out.println("Class Name: " + o2.getClass().getName() + ", Interface: " + o2.getClass().isInterface());
+            Class[] ifs = o2.getClass().getInterfaces();
+        } catch (ClassNotFoundException e) {
+            System.err.println("HelloWorld.class is NOT found.");
+        } catch (InstantiationException e) {
+            System.err.println("Class.newInstance cannot create an object of HelloWorld.");
+        } catch (IllegalAccessException e) {
+            System.err.println("Class.newInstance cannot access the constructor of HelloWorld.");
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -256,7 +288,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testException();
+        testRTTI();
     }
 
 }
