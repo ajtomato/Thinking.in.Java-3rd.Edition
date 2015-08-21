@@ -212,9 +212,20 @@ public class HelloWorld {
         throw new DemoException("Hello");
     }
 
+    static void testThrowExceptionChain(int c) throws DemoException {
+        switch (c) {
+            case 0:
+                throw new DemoException(new NullPointerException());
+            case 1:
+                DemoException e = new DemoException("Hello");
+                e.initCause(new NullPointerException());
+                throw e;
+        }
+    }
+
     static void testException() throws Throwable {
         try {
-            testThrowException();
+            testThrowExceptionChain(1);
         } catch (DemoException e) {
             e.detail();
             e.printStackTrace();
