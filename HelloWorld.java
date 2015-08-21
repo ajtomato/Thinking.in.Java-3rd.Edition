@@ -212,13 +212,15 @@ public class HelloWorld {
         throw new DemoException("Hello");
     }
 
-    static void testException() {
+    static void testException() throws Throwable {
         try {
             testThrowException();
         } catch (DemoException e) {
             e.detail();
             e.printStackTrace();
             System.err.println(e);
+            // fillInStackTrace returns Throwable
+            throw e.fillInStackTrace();
         }
     }
 
@@ -236,7 +238,7 @@ public class HelloWorld {
         return (i + j + k);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
         for (int i = 0; i < args.length; ++ i) {
             System.out.println(args[i]);
         }
