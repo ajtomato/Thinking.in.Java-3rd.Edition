@@ -269,6 +269,13 @@ public class HelloWorld {
         }
     }
 
+    static void testReflection() {
+        Class c = HelloWorld.class;
+        java.lang.reflect.Constructor[] constructors = c.getConstructors();
+        java.lang.reflect.Method[] methods = c.getMethods();
+        java.lang.reflect.Field[] fields = c.getFields();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -288,7 +295,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testRTTI();
+        testReflection();
     }
 
 }
