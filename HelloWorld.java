@@ -276,6 +276,73 @@ public class HelloWorld {
         java.lang.reflect.Field[] fields = c.getFields();
     }
 
+    static class Item implements Comparable<Item> {
+
+        Item(int field) {
+            fField = field;
+        }
+
+        int fField;
+
+        @Override
+        public int compareTo(Item rhs) {
+            if (fField < rhs.fField) {
+                return -1;
+            } else if (fField == rhs.fField) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+
+    }
+
+    static class ItemComparator implements Comparator<Item> {
+
+        @Override
+        public int compare(Item lhs, Item rhs) {
+            if (lhs.fField < rhs.fField) {
+                return -1;
+            } else if (lhs.fField == rhs.fField) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    static void testArray() {
+        HelloWorld[] a1;
+        a1 = new HelloWorld[] { new HelloWorld(), new HelloWorld() };
+        HelloWorld[] a2 = new HelloWorld[5];
+        HelloWorld[] a3 = { new HelloWorld(), new HelloWorld() };
+
+        int[] a4 = new int[5];
+        Arrays.fill(a4, 1, 3, 7);
+        for (int i = 0; i < a4.length; ++ i) {
+            System.out.println(a4[i]);
+        }
+        int[] a5 = new int[8];
+        System.arraycopy(a4, 2, a5, 1, 3);
+        for (int i = 0; i < a5.length; ++ i) {
+            System.out.println(a5[i]);
+        }
+        System.out.println("Arrays.equal: " + Arrays.equals(a4, a5));
+
+
+        Item[] items = new Item[9];
+        for (int i = 0; i < items.length; ++ i) {
+            items[i] = new HelloWorld.Item(items.length - i);
+        }
+        Arrays.sort(items);
+        Arrays.sort(items, new ItemComparator());
+        for (int i = 0; i < items.length; ++ i) {
+            System.out.println(items[i].fField);
+        }
+        Item it = new Item(2);
+        System.out.println("binarySearch: " + Arrays.binarySearch(items, it) + ", " +  Arrays.binarySearch(items, it, new ItemComparator()));
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -295,7 +362,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testReflection();
+        testArray();
     }
 
 }
