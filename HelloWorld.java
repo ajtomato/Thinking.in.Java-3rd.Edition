@@ -295,6 +295,21 @@ public class HelloWorld {
             }
         }
 
+        @Override
+        public String toString() {
+            return Integer.toString(fField);
+        }
+
+        @Override
+        public int hashCode() {
+            return super.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object rhs) {
+            return super.equals(rhs);
+        }
+
     }
 
     static class ItemComparator implements Comparator<Item> {
@@ -343,6 +358,40 @@ public class HelloWorld {
         System.out.println("binarySearch: " + Arrays.binarySearch(items, it) + ", " +  Arrays.binarySearch(items, it, new ItemComparator()));
     }
 
+    static void testContainer() {
+        // There are two types of container, including Collection and Map.
+
+        // Collection
+        Collection<Item> arrayList = new ArrayList<Item>();
+        Collection<Item> linkedList = new LinkedList<Item>();
+        Collection<Item> hashSet = new HashSet<Item>();
+        Collection<Item> treeSet = new TreeSet<Item>();
+        for (int i = 0; i < 5; ++ i) {
+            arrayList.add(new Item(i));
+            hashSet.add(new Item(i));
+        }
+        System.out.println(arrayList);
+        System.out.println(hashSet);
+        for (Iterator<Item> it = arrayList.iterator(); it.hasNext(); ) {
+            Item i = it.next();
+            System.out.println(i);
+        }
+
+        // Map
+        Map<String, Item> hashMap = new HashMap<String, Item>();
+        Map<String, Item> treeMap = new TreeMap<String, Item>();
+        Map<String, Item> linkedHashMap = new LinkedHashMap<String, Item>();
+        Map<String, Item> weakHashMap = new WeakHashMap<String, Item>();
+        Map<String, Item> identityHashMap = new IdentityHashMap<String, Item>();
+        hashMap.put("hello", new Item(0));
+        hashMap.put("world", new Item(1));
+        if (hashMap.containsKey("hello")) {
+            System.out.println(hashMap.get("hello"));
+        }
+        System.out.println(hashMap.keySet());
+        System.out.println(hashMap.values());
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -362,7 +411,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testArray();
+        testContainer();
     }
 
 }
