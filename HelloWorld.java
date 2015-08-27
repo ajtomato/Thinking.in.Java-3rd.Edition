@@ -392,6 +392,22 @@ public class HelloWorld {
         System.out.println(hashMap.values());
     }
 
+    static void testFile() {
+        // java.io.File is used as a file manager without accessing files.
+        java.io.File path = new java.io.File(".");
+        String[] files = path.list();
+        System.out.println("All files: ");
+        for (int i = 0; i < files.length; ++ i) {
+            System.out.println(files[i]);
+        }
+
+        java.io.File tmpDir = new java.io.File("tmp");
+        if (!tmpDir.exists()) {
+            tmpDir.mkdirs();
+        }
+        tmpDir.delete();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -411,7 +427,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testContainer();
+        testFile();
     }
 
 }
