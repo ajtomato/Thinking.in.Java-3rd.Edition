@@ -2,7 +2,7 @@
 import java.util.*;
 import com.gmail.ajtomato.Package;
 
-public class HelloWorld {
+public class HelloWorld implements java.io.Serializable {
 
     // Specifying initialization
     private int fField = 9;
@@ -473,6 +473,27 @@ public class HelloWorld {
         }
     }
 
+    static void testSerializable() {
+        try {
+            java.io.ObjectOutputStream out = new java.io.ObjectOutputStream(new java.io.FileOutputStream("tmp.out"));
+            out.writeObject("HelloHell\n");
+            out.writeObject(new HelloWorld());
+            out.close();
+
+            java.io.ObjectInputStream in = new java.io.ObjectInputStream(new java.io.FileInputStream("tmp.out"));
+            String s = (String)in.readObject();
+            System.out.println(s);
+            HelloWorld h = (HelloWorld)in.readObject();
+            System.out.println(h);
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println(e);
+        } catch (java.io.IOException e) {
+            System.out.println(e);
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e);
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -492,7 +513,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testInputOutput();
+        testSerializable();
     }
 
 }
