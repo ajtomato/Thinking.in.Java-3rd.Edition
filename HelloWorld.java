@@ -408,6 +408,59 @@ public class HelloWorld {
         tmpDir.delete();
     }
 
+    static void testInputOutput() {
+        try {
+            // Read from console
+            java.io.BufferedReader consoleBr = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+            String s = consoleBr.readLine();
+            System.out.println(s);
+
+            // Write to file
+            java.io.PrintWriter out1 = new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter("tmp.log")));
+            out1.println(s);
+            out1.close();
+
+            // Read characters from string
+            java.io.StringReader sr = new java.io.StringReader("hello world");
+            int c;
+            while ((c = sr.read()) != -1) {
+                System.out.println((char)c);
+            }
+
+            // Read memory
+            try {
+                // ByteArrayInputStream: string => bytes.
+                java.io.DataInputStream in0 = new java.io.DataInputStream(new java.io.BufferedInputStream(new java.io.FileInputStream("tmp.log")));
+                while (true) {
+                    System.out.println((char)in0.readByte());
+                }
+            } catch (java.io.EOFException e) {
+                System.out.println(e);
+            }
+
+            // Write memory
+            try {
+                java.io.DataOutputStream out2 = new java.io.DataOutputStream(new java.io.BufferedOutputStream(new java.io.FileOutputStream("tmp.log")));
+                out2.writeDouble(3.14);
+                out2.writeUTF("Hello world");
+                out2.close();
+
+                java.io.DataInputStream in1 = new java.io.DataInputStream(new java.io.BufferedInputStream(new java.io.FileInputStream("tmp.log")));
+                System.out.println(in1.readDouble());
+                System.out.println(in1.readUTF());
+            } catch (java.io.EOFException e) {
+                System.out.println(e);
+            }
+
+            // RandomAccessFile
+            java.io.RandomAccessFile rf = new java.io.RandomAccessFile("tmp.log", "r");
+            System.out.println(rf.readDouble());
+            System.out.println(rf.readUTF());
+        } catch (java.io.IOException e) {
+            System.out.println(e);
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -427,7 +480,7 @@ public class HelloWorld {
             System.out.println(args[i]);
         }
         
-        testFile();
+        testInputOutput();
     }
 
 }
