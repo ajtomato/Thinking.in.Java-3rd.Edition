@@ -461,6 +461,18 @@ public class HelloWorld {
         }
     }
 
+    static void testRedirectStandardIo() {
+        try {
+            java.io.BufferedInputStream in = new java.io.BufferedInputStream(new java.io.FileInputStream("tmp.log"));
+            java.io.PrintStream out = new java.io.PrintStream(new java.io.BufferedOutputStream(new java.io.FileOutputStream("tmp.log")));
+            System.setIn(in);
+            System.setOut(out);
+            System.setErr(out);
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println(e);
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
