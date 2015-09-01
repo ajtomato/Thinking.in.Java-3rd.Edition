@@ -507,6 +507,18 @@ public class HelloWorld implements java.io.Serializable {
         }
     }
 
+    static void testMultithread() {
+        for (int i  = 0 ; i < 5; ++ i) {
+            try {
+                new Multithread(i);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            
+        }
+        System.out.println("All threads have been started");
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -526,7 +538,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testSerializable();
+        testMultithread();
     }
 
 }
