@@ -7,6 +7,7 @@ public class HelloWorld implements java.io.Serializable {
     // Specifying initialization
     private int fField = 9;
     private int fField1 = testRandom();
+    private transient String fField2 = "Hello world";
 
     // Non-static instance initialization
     {
@@ -50,7 +51,17 @@ public class HelloWorld implements java.io.Serializable {
     }
 
     public String toString() {
-        return "HelloWorld.toString";
+        return "HelloWorld.toString: " + fField + ", " + fField1 + ", " + fField2;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream str) throws java.io.IOException {
+        str.defaultWriteObject();
+        str.writeObject(fField2);
+    }
+
+    private void readObject(java.io.ObjectInputStream str) throws java.io.IOException, ClassNotFoundException {
+        str.defaultReadObject();
+        fField2 = (String)str.readObject();
     }
 
     static void testPrimitiveTypes() {
@@ -477,19 +488,21 @@ public class HelloWorld implements java.io.Serializable {
         try {
             java.io.ObjectOutputStream out = new java.io.ObjectOutputStream(new java.io.FileOutputStream("tmp.out"));
             out.writeObject("HelloHell\n");
-            out.writeObject(new HelloWorld());
+            HelloWorld h = new HelloWorld();
+            System.out.println(h);
+            out.writeObject(h);
             out.close();
 
             java.io.ObjectInputStream in = new java.io.ObjectInputStream(new java.io.FileInputStream("tmp.out"));
             String s = (String)in.readObject();
             System.out.println(s);
-            HelloWorld h = (HelloWorld)in.readObject();
+            h = (HelloWorld)in.readObject();
             System.out.println(h);
         } catch (java.io.FileNotFoundException e) {
             System.out.println(e);
         } catch (java.io.IOException e) {
             System.out.println(e);
-        } catch (java.lang.ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
         }
     }
