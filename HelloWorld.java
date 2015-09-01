@@ -510,8 +510,8 @@ public class HelloWorld implements java.io.Serializable {
     static void testMultithread() {
         for (int i  = 0 ; i < 5; ++ i) {
             try {
-                new Multithread(i);
-            } catch (Exception e) {
+                new Multithread(i).join();
+            } catch (InterruptedException e) {
                 System.out.println(e);
             }
             
