@@ -525,6 +525,11 @@ public class HelloWorld implements java.io.Serializable {
         System.out.println("All threads have been started");
     }
 
+    static void testRunnableThread() {
+        Thread t = new Thread(new RunnableThread(), "RunnableThread");
+        t.start();
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -544,7 +549,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testDaemonthread();
+        testRunnableThread();
     }
 
 }

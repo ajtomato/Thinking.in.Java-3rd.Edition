@@ -39,3 +39,12 @@ class Daemonthread extends Thread {
         System.out.println("Daemonthread[Done]: " + getName());
     }
 }
+
+class RunnableThread implements Runnable {
+
+    @Override
+    public void run() {
+        System.out.println("RunnableThread.run");
+    }
+
+}
