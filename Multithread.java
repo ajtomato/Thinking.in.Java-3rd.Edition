@@ -19,3 +19,23 @@ class Multithread extends Thread {
     }
 
 }
+
+class Daemonthread extends Thread {
+
+    Daemonthread(int i) {
+        super("Daemonthread[" + i + "]");
+        setDaemon(true);
+        System.out.println("Daemonthread[Start]: " + i);
+    }
+
+    @Override
+    public void run() {
+        try {
+            sleep(1000); // milliseconds
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        
+        System.out.println("Daemonthread[Done]: " + getName());
+    }
+}

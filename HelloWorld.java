@@ -514,7 +514,13 @@ public class HelloWorld implements java.io.Serializable {
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
-            
+        }
+        System.out.println("All threads have been started");
+    }
+
+    static void testDaemonthread() {
+        for (int i  = 0 ; i < 5; ++ i) {
+            new Daemonthread(i);
         }
         System.out.println("All threads have been started");
     }
@@ -538,7 +544,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testMultithread();
+        testDaemonthread();
     }
 
 }
