@@ -1,5 +1,7 @@
 class Multithread extends Thread {
 
+    private Object syncObject = new Object();
+
     Multithread(int  i) {
         super("HelloWorld[" + i + "]");
         start();
@@ -16,6 +18,16 @@ class Multithread extends Thread {
         }
         
         System.out.println("Multithread: " + getName());
+    }
+
+    synchronized void syncMethod1() {
+        System.out.println("Multithread.syncMethod1");
+    }
+
+    void syncMethod2() {
+        synchronized(syncObject) {
+            System.out.println("Multithread.syncMethod2");
+        }
     }
 
 }
