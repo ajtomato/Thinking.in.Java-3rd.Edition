@@ -530,6 +530,13 @@ public class HelloWorld implements java.io.Serializable {
         t.start();
     }
 
+    static void testWaitNotify() {
+        ProducerThread p = new ProducerThread();
+        for (int i = 0; i < 10; ++ i) {
+            p.add(new ConsumerThread(i));
+        }
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -549,7 +556,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testRunnableThread();
+        testWaitNotify();
     }
 
 }
