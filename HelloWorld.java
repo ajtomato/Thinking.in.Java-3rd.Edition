@@ -542,6 +542,13 @@ public class HelloWorld implements java.io.Serializable {
         ReceiverThread r = new ReceiverThread(w.getPipedWriter());
     }
 
+    static void testInterruptThread() {
+        LongTimeThread t = new LongTimeThread();
+        t.start();
+
+        new InterruptThread(t);
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -561,7 +568,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testPipedWriteRead();
+        testInterruptThread();
     }
 
 }

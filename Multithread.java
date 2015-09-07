@@ -190,3 +190,43 @@ class ReceiverThread extends Thread {
     }
 
 }
+
+class LongTimeThread extends Thread {
+
+    @Override
+    public void run() {
+        try {
+            // this should be used, when it is waiting for others to notify.
+            synchronized (this) {
+                System.out.println("LongTimeThread.wait");
+                wait();
+                System.out.println("LongTimeThread.run1");
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+            System.out.println("LongTimeThread.run2");
+        }
+        System.out.println("LongTimeThread.run3");
+    }
+
+}
+
+class InterruptThread extends Thread {
+
+    private Thread fInterruptedThread;
+
+    InterruptThread(Thread t) {
+        fInterruptedThread = t;
+        start();
+    }
+
+    @Override
+    public void run() {
+        try {
+            sleep(1000);
+            fInterruptedThread.interrupt();
+        } catch (java.lang.InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
