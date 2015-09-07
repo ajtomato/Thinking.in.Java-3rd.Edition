@@ -123,3 +123,70 @@ class ConsumerThread extends Thread {
     }
 
 }
+
+class SenderThread extends Thread {
+
+    private java.io.PipedWriter out = new java.io.PipedWriter();
+
+    SenderThread() {
+        start();
+    }
+
+    java.io.PipedWriter getPipedWriter() {
+        return out;
+    }
+
+    @Override
+    public void run() {
+        try {
+            sleep(1000);
+        } catch (java.lang.InterruptedException e) {
+            System.out.println(e);
+        }
+
+        for (char i = 'a'; i <= 'z'; ++ i) {
+            try {
+                out.write(i);
+                sleep(100);
+            } catch (java.io.IOException e) {
+                System.out.println(e);
+            } catch (java.lang.InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+
+        try {
+            sleep(1000);
+        } catch (java.lang.InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+class ReceiverThread extends Thread {
+
+    private java.io.PipedReader in;
+
+    ReceiverThread(java.io.PipedWriter out) {
+        try {
+            in = new java.io.PipedReader(out);
+        } catch (java.io.IOException e) {
+            System.out.println(e);
+        }
+        setDaemon(true);
+        start();
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                System.out.print((char)in.read());
+            } catch (java.io.IOException e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+}

@@ -537,6 +537,11 @@ public class HelloWorld implements java.io.Serializable {
         }
     }
 
+    static void testPipedWriteRead() {
+        SenderThread w = new SenderThread();
+        ReceiverThread r = new ReceiverThread(w.getPipedWriter());
+    }
+
     public static final int CONST_VALUE = 101;
 
     /**
@@ -556,7 +561,7 @@ public class HelloWorld implements java.io.Serializable {
             System.out.println(args[i]);
         }
         
-        testWaitNotify();
+        testPipedWriteRead();
     }
 
 }
